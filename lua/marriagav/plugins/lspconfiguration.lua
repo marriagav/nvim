@@ -65,8 +65,18 @@ return {
 				--  For example, in C this would take you to the header.
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-				vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show line diagnostics", buffer = bufnr })
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show documentation for what is under cursor", buffer = bufnr })
+				vim.keymap.set(
+					"n",
+					"<leader>d",
+					vim.diagnostic.open_float,
+					{ desc = "Show line diagnostics", buffer = bufnr }
+				)
+				vim.keymap.set(
+					"n",
+					"K",
+					vim.lsp.buf.hover,
+					{ desc = "Show documentation for what is under cursor", buffer = bufnr }
+				)
 
 				-- The following two autocommands are used to highlight references of the
 				-- word under your cursor when your cursor rests there for a little while.
@@ -155,13 +165,12 @@ return {
 			},
 		}
 
-		require("lspconfig").sourcekit.setup {
+		require("lspconfig").sourcekit.setup({
 			capabilities = capabilities,
-				on_attach = function(_, bufnr)
-					local opts = { noremap = true, silent = true, buffer = bufnr}
-				end,
-		}
-
+			on_attach = function(_, bufnr)
+				local opts = { noremap = true, silent = true, buffer = bufnr }
+			end,
+		})
 
 		-- Ensure the servers and tools above are installed
 		--  To check the current status of installed tools and/or manually install
@@ -189,6 +198,7 @@ return {
 			"pylint", -- python linter
 			"eslint_d", -- js linter
 			"swiftlint",
+			"terraformls",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
