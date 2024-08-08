@@ -14,6 +14,7 @@ return {
 			},
 			-- change folder arrow icons
 			renderer = {
+				root_folder_label = false,
 				group_empty = true,
 			},
 			-- disable window_picker for
