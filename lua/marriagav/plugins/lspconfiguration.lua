@@ -190,7 +190,6 @@ return {
 			"tsserver",
 			"eslint",
 			"biome",
-			"grammarly",
 			"prettier", -- prettier formatter
 			"stylua", -- lua formatter
 			"isort", -- python formatter

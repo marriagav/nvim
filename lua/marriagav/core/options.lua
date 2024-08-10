@@ -1,7 +1,6 @@
 -- Set options
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 -- [[ Setting options ]]
@@ -19,7 +18,7 @@ vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 
 if vim.g.vscode then
-    -- VSCode extensions
+	-- VSCode extensions
 	vim.opt.showmode = true
 else
 	-- Don't show the mode, since it's already in the status line
@@ -73,3 +72,4 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+vim.o.conceallevel = 2 -- set conceal level for obsidian plugin

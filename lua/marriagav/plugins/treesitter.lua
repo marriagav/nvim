@@ -1,6 +1,7 @@
 return { -- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
 	"nvim-treesitter/nvim-treesitter-context",
+	lazy = false,
 	build = ":TSUpdate",
 	opts = {
 		ensure_installed = {
