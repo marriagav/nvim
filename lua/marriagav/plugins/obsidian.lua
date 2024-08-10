@@ -10,7 +10,7 @@ return {
 		workspaces = {
 			{
 				name = "obsidian",
-				path = "/Users/marriagav/Documents/Obsidian",
+				path = "/Users/marriagav/Library/Mobile Documents/iCloud~md~obsidian/Documents/Miguel/",
 			},
 		},
 		-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.

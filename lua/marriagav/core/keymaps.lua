@@ -32,8 +32,9 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Keybinds for Obsidian
+local base_dir = "/Users/marriagav/Library/Mobile Documents/iCloud~md~obsidian/Documents/Miguel/"
 -- navigate to vault
-vim.keymap.set("n", "<leader>oo", ":cd /Users/marriagav/Documents/Obsidian")
+vim.keymap.set("n", "<leader>oo", ":cd " .. base_dir .. "")
 --
 -- convert note to template and remove leading white space
 vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note-template<cr>")
@@ -46,7 +47,6 @@ vim.keymap.set("n", "<leader>om", ":ObsidianTemplate monthly-budget-template<cr>
 vim.keymap.set("n", "<leader>of", ":s/-/ /g<cr>")
 --
 -- search for files in vault
-local base_dir = "/Users/marriagav/Documents/Obsidian/"
 local search_dirs = { base_dir .. "notes", base_dir .. "templates", base_dir .. "hubs", base_dir .. "projects" }
 
 local function join_paths(paths)
