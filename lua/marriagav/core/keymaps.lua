@@ -32,7 +32,7 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Keybinds for Obsidian
-local base_dir = "/Users/marriagav/Library/Mobile Documents/iCloud~md~obsidian/Documents/Miguel/"
+local base_dir = "/Users/marriagav/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Miguel/"
 -- navigate to vault
 vim.keymap.set("n", "<leader>oo", ":cd " .. base_dir .. "")
 --
@@ -47,11 +47,20 @@ vim.keymap.set("n", "<leader>om", ":ObsidianTemplate monthly-budget-template<cr>
 vim.keymap.set("n", "<leader>of", ":s/-/ /g<cr>")
 --
 -- search for files in vault
-local search_dirs = { base_dir .. "notes", base_dir .. "templates", base_dir .. "hubs", base_dir .. "projects" }
+local search_dirs = { "notes", "templates", "hubs", "projects" }
 
 local function join_paths(paths)
 	return table.concat(paths, ",")
 end
 
-vim.keymap.set("n", "<leader>os", ":Telescope find_files search_dirs=" .. join_paths(search_dirs) .. "<cr>")
-vim.keymap.set("n", "<leader>og", ":Telescope live_grep search_dirs=" .. join_paths(search_dirs) .. "<cr>")
+vim.keymap.set(
+	"n",
+	"<leader>os",
+	":Telescope find_files cwd=" .. base_dir .. " search_dirs=" .. join_paths(search_dirs) .. "<cr>"
+)
+
+vim.keymap.set(
+	"n",
+	"<leader>og",
+	":Telescope live_grep cwd=" .. base_dir .. " search_dirs=" .. join_paths(search_dirs) .. "<cr>"
+)
