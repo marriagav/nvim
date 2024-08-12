@@ -41,13 +41,15 @@ vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note-template<cr>")
 
 vim.keymap.set("n", "<leader>ob", ":ObsidianTemplate bookmark-template<cr>" .. ":/^urls:/+1<cr>" .. "A ")
 
+vim.keymap.set("n", "<leader>ot", ":ObsidianTemplate task-template<cr>")
+
 vim.keymap.set("n", "<leader>om", ":ObsidianTemplate monthly-budget-template<cr>")
 -- Replace dashes with spaces
 -- must have cursor on title:
 vim.keymap.set("n", "<leader>of", ":s/-/ /g<cr>")
 --
 -- search for files in vault
-local search_dirs = { "notes", "templates", "hubs", "projects" }
+local search_dirs = { "notes", "templates", "hubs", "projects", "tasks" }
 
 local function join_paths(paths)
 	return table.concat(paths, ",")
