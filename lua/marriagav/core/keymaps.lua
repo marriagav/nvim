@@ -49,7 +49,7 @@ vim.keymap.set("n", "<leader>om", ":ObsidianTemplate monthly-budget-template<cr>
 vim.keymap.set("n", "<leader>of", ":s/-/ /g<cr>")
 --
 -- search for files in vault
-local search_dirs = { "notes", "templates", "hubs", "projects", "tasks" }
+local search_dirs = { "notes", "templates", "hubs", "projects", "tasks", "bookmarks" }
 
 local function join_paths(paths)
 	return table.concat(paths, ",")
