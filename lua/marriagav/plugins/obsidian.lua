@@ -20,7 +20,7 @@ return {
 			-- Trigger completion at 2 chars.
 			min_chars = 2,
 		},
-		notes_subdir = "notes",
+		notes_subdir = "inbox",
 		new_notes_location = "notes_subdir",
 		-- Optional, for templates (see below).
 		disable_frontmatter = true,
