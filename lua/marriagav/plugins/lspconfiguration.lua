@@ -71,6 +71,11 @@ return {
 					vim.diagnostic.open_float,
 					{ desc = "Show line diagnostics", buffer = bufnr }
 				)
+
+				vim.keymap.set("n", "<leader>dq", function()
+					vim.diagnostic.reset(nil, 0)
+				end, { desc = "Reset diagnostic" })
+
 				vim.keymap.set(
 					"n",
 					"K",
