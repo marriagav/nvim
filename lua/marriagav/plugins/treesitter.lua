@@ -23,6 +23,12 @@ return { -- Highlight, edit, and navigate code
 				"swift",
 				"python",
 				"typescript",
+				"javascript",
+				"c++",
+				"php",
+				"go",
+				"rust",
+				"json",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
