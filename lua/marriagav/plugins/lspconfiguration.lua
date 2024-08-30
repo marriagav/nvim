@@ -196,6 +196,7 @@ return {
 			"eslint",
 			"biome",
 			"prettier", -- prettier formatter
+			"pretty-php",
 			"stylua", -- lua formatter
 			"isort", -- python formatter
 			"black", -- python formatter
@@ -203,6 +204,7 @@ return {
 			"eslint_d", -- js linter
 			"swiftlint",
 			"terraformls",
+			"phpactor",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
