@@ -222,7 +222,7 @@ return {
 			"eslint",
 			"biome",
 			"prettier", -- prettier formatter
-			"pretty-php",
+			"intelephense",
 			"stylua", -- lua formatter
 			"isort", -- python formatter
 			"black", -- python formatter
@@ -230,7 +230,6 @@ return {
 			"eslint_d", -- js linter
 			"swiftlint",
 			"terraformls",
-			"phpactor",
 			"emmet-language-server",
 			"html-lsp",
 		})

@@ -26,6 +26,7 @@ return { -- Highlight, edit, and navigate code
 				"javascript",
 				"c++",
 				"php",
+				"php_only",
 				"go",
 				"rust",
 				"json",

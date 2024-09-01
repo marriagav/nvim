@@ -37,7 +37,6 @@ return { -- Autoformat
 			markdown = { "prettier" },
 			graphql = { "prettier" },
 			liquid = { "prettier" },
-			php = { "pretty-php" },
 			lua = { "stylua" },
 			python = { "isort", "black" },
 			swift = { "swiftformat" },
