@@ -177,6 +177,32 @@ return {
 			end,
 		})
 
+		require("lspconfig").emmet_language_server.setup({
+			filetypes = {
+				"css",
+				"eruby",
+				"html",
+				"javascript",
+				"javascriptreact",
+				"less",
+				"sass",
+				"scss",
+				"pug",
+				"typescriptreact",
+				"php",
+			},
+		})
+
+		require("lspconfig").html.setup({
+			filetypes = {
+				"html",
+				"javascript",
+				"javascriptreact",
+				"typescriptreact",
+				"php",
+			},
+		})
+
 		-- Ensure the servers and tools above are installed
 		--  To check the current status of installed tools and/or manually install
 		--  other tools, you can run
@@ -206,6 +232,7 @@ return {
 			"terraformls",
 			"phpactor",
 			"emmet-language-server",
+			"html-lsp",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
