@@ -44,6 +44,8 @@ vim.keymap.set("n", "<leader>ob", ":ObsidianTemplate bookmark-template<cr>" .. "
 vim.keymap.set("n", "<leader>ot", ":ObsidianTemplate task-template<cr>")
 
 vim.keymap.set("n", "<leader>om", ":ObsidianTemplate monthly-budget-template<cr>")
+
+vim.keymap.set("n", "<leader>or", ":ObsidianBacklinks<cr>")
 -- Replace dashes with spaces
 -- must have cursor on title:
 vim.keymap.set("n", "<leader>of", ":s/-/ /g<cr>")
