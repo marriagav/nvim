@@ -218,7 +218,6 @@ return {
 			"stylua", -- Used to format Lua code
 			"graphql",
 			"pyright",
-			"tsserver",
 			"eslint",
 			"biome",
 			"prettier", -- prettier formatter

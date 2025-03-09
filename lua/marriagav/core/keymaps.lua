@@ -59,12 +59,14 @@ end
 
 vim.keymap.set(
 	"n",
-	"<leader>os",
-	":Telescope find_files cwd=" .. base_dir .. " search_dirs=" .. join_paths(search_dirs) .. "<cr>"
+	"<leader>so",
+	":Telescope find_files cwd=" .. base_dir .. " search_dirs=" .. join_paths(search_dirs) .. "<cr>",
+	{ desc = "[S]earch [O]bsidian files" }
 )
-
 vim.keymap.set(
 	"n",
-	"<leader>og",
-	":Telescope live_grep cwd=" .. base_dir .. " search_dirs=" .. join_paths(search_dirs) .. "<cr>"
+	"<leader>sog",
+	":Telescope live_grep cwd=" .. base_dir .. " search_dirs=" .. join_paths(search_dirs) .. "<cr>",
+	{ desc = "[S]earch [O]bsidian by [G]rep" }
 )
+vim.keymap.set("n", "<leader>hgb", ":Gitsigns blame<cr>", { desc = "[H][G]it [B]lame" })
