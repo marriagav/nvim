@@ -3,6 +3,7 @@ return {
 	priority = 1000,
 	lazy = false,
 	opts = {
+		image = { enabled = true },
 		bigfile = { enabled = true },
 		dashboard = { enabled = false },
 		explorer = { enabled = false },
