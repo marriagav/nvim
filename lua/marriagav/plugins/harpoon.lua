@@ -8,11 +8,16 @@ return {
 	config = function()
 		local harpoon = require("harpoon")
 		harpoon:setup()
+		local toggle_opts = {
+			border = "rounded",
+			title_pos = "center",
+			height_in_lines = 15,
+		}
 		vim.keymap.set("n", "<leader>ha", function()
 			harpoon:list():add()
 		end)
 		vim.keymap.set("n", "<leader>hh", function()
-			harpoon.ui:toggle_quick_menu(harpoon:list())
+			harpoon.ui:toggle_quick_menu(harpoon:list(), toggle_opts)
 		end)
 		local conf = require("telescope.config").values
 		local function toggle_telescope(harpoon_files)
