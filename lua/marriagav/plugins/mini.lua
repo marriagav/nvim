@@ -15,6 +15,33 @@ return { -- Collection of various small independent plugins/modules
 		-- - sd'   - [S]urround [D]elete [']quotes
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup()
+
+		require("mini.sessions").setup({
+			-- Whether to read default session if Neovim opened without file arguments
+			autoread = true,
+			-- Whether to write currently read session before quitting Neovim
+			autowrite = true,
+		})
+		vim.keymap.set("n", "<leader>mss", function()
+			MiniSessions.select()
+		end, { desc = "[M]ini [S]ession [S]elect" })
+
+		vim.keymap.set("n", "<leader>msc", function()
+			local session_name = vim.fn.input("Enter session name (or enter for local): ")
+			if session_name == "" then
+				MiniSessions.write(MiniSessions.config.file)
+			else
+				MiniSessions.write(session_name)
+			end
+		end, { desc = "[M]ini [S]ession [C]reate" })
+
+		vim.keymap.set("n", "<leader>msw", function()
+			MiniSessions.write()
+		end, { desc = "[M]ini [S]ession [W]rite" })
+
+		vim.keymap.set("n", "<leader>msd", function()
+			local session_name = vim.fn.input("Enter session name to delete: ")
+			MiniSessions.delete(session_name)
+		end, { desc = "[M]ini [S]ession [D]elete" })
 	end,
 }
-
