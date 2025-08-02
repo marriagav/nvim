@@ -74,4 +74,4 @@ vim.opt.scrolloff = 10
 
 vim.o.conceallevel = 2 -- set conceal level for obsidian plugin
 
-vim.o.cmdheight = 0 -- set command line height
+vim.o.cmdheight = 1 -- set command line height
