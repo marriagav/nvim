@@ -192,6 +192,8 @@ return {
 					"php",
 				},
 			},
+
+			rust_analyzer = {},
 		}
 
 		local servers_to_ignore_from_mason = {
@@ -224,6 +226,7 @@ return {
 			"eslint_d", -- js linter
 			"swiftlint",
 			"terraformls",
+			"rust_analyzer",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 	end,
