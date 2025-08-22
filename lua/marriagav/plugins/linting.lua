@@ -24,8 +24,10 @@ return {
 			end,
 		})
 
+		-- Keymaps
+
 		vim.keymap.set("n", "<leader>l", function()
 			lint.try_lint()
-		end, { desc = "Trigger linting for current file" })
+		end, { desc = "[L]int file" })
 	end,
 }

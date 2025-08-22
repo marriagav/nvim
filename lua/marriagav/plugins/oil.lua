@@ -1,9 +1,7 @@
 return {
 	"stevearc/oil.nvim",
 	opts = {},
-	-- Optional dependencies
-	dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-	-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("oil").setup({
 			default_file_explorer = true,
@@ -30,6 +28,8 @@ return {
 			},
 			use_default_keymaps = false,
 		})
+
+		-- Keymaps
 		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 	end,
 	lazy = false,

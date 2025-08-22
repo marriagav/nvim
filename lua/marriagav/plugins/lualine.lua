@@ -3,10 +3,10 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local lualine = require("lualine")
-		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+		local lazy_status = require("lazy.status")
+
 		local function current_session()
 			local session_path = vim.v.this_session
-			-- Use pattern matching to capture everything after the last slash
 			local session_name = session_path:match("([^/\\]+)$")
 			local prefix = "(g)"
 			if session_name == "Session.vim" then
@@ -14,9 +14,11 @@ return {
 			end
 			return prefix .. " " .. session_name
 		end
+
 		local mocha = require("catppuccin.utils.lualine")("mocha")
 		local fg_color = "fg"
 		local bg_color = mocha.inactive.a.bg
+
 		lualine.setup({
 			options = {
 				component_separators = { left = "|", right = "|" },
