@@ -1,9 +1,4 @@
--- Keymaps
-vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note-template<cr>")
-vim.keymap.set("n", "<leader>ob", ":ObsidianTemplate bookmark-template<cr>" .. ":/^urls:/+1<cr>" .. "A ")
-vim.keymap.set("n", "<leader>ot", ":ObsidianTemplate task-template<cr>")
-vim.keymap.set("n", "<leader>om", ":ObsidianTemplate monthly-budget-template<cr>")
-vim.keymap.set("n", "<leader>or", ":ObsidianBacklinks<cr>")
+local obsidian_vault_path = "/Users/marriagav/Library/Mobile Documents/iCloud~md~obsidian/Documents/Miguel/"
 
 return {
 	"obsidian-nvim/obsidian.nvim",
@@ -17,7 +12,7 @@ return {
 		workspaces = {
 			{
 				name = "obsidian",
-				path = "/Users/marriagav/Library/Mobile Documents/iCloud~md~obsidian/Documents/Miguel/",
+				path = obsidian_vault_path,
 			},
 		},
 		completion = {
@@ -37,4 +32,37 @@ return {
 			bullets = {},
 		},
 	},
+	config = function(_, opts)
+		require("obsidian").setup(opts)
+		-- Set up keymaps only for Obsidian buffers
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "markdown",
+			callback = function()
+				local buf_path = vim.api.nvim_buf_get_name(0)
+				if buf_path:sub(1, #obsidian_vault_path) == obsidian_vault_path then
+					if vim.bo.filetype == "markdown" then
+						-- Only set if Obsidian is loaded
+						if package.loaded["obsidian"] then
+							vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note-template<cr>", { buffer = true })
+							vim.keymap.set(
+								"n",
+								"<leader>ob",
+								":ObsidianTemplate bookmark-template<cr>: /^urls:/+1<cr>A ",
+								{ buffer = true }
+							)
+							vim.keymap.set("n", "<leader>ot", ":ObsidianTemplate task-template<cr>", { buffer = true })
+							vim.keymap.set(
+								"n",
+								"<leader>om",
+								":ObsidianTemplate monthly-budget-template<cr>",
+								{ buffer = true }
+							)
+							vim.keymap.set("n", "<leader>or", ":ObsidianBacklinks<cr>", { buffer = true })
+							vim.keymap.set("n", "gf", ":ObsidianFollowLink<cr>", { buffer = true })
+						end
+					end
+				end
+			end,
+		})
+	end,
 }
