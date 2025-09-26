@@ -1,4 +1,4 @@
-local obsidian_vault_path = "/Users/marriagav/Library/Mobile Documents/iCloud~md~obsidian/Documents/Miguel/"
+local obsidian_vault_path = os.getenv("OBSIDIAN_PATH")
 
 return {
 	"obsidian-nvim/obsidian.nvim",
