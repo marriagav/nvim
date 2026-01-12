@@ -5,11 +5,7 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		require("xcodebuild").setup({
-			code_coverage = {
-				enabled = true,
-			},
-		})
+		require("xcodebuild").setup({})
 
 		-- Keymaps
 		vim.keymap.set("n", "<leader>XC", "<cmd>XcodebuildPicker<cr>", { desc = "Show All Xcodebuild Actions" })

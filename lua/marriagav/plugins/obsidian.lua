@@ -21,16 +21,15 @@ return {
 		},
 		notes_subdir = "inbox",
 		new_notes_location = "notes_subdir",
-		disable_frontmatter = true,
 		templates = {
 			subdir = "templates",
 			date_format = "%Y-%m-%d",
 			time_format = "%H:%M:%S",
 		},
 		ui = {
-			checkboxes = {},
 			bullets = {},
 		},
+		legacy_commands = false,
 	},
 	config = function(_, opts)
 		require("obsidian").setup(opts)

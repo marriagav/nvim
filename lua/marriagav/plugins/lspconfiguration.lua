@@ -99,7 +99,8 @@ return {
 		for server_name, server_config in pairs(servers) do
 			server_config.capabilities =
 				vim.tbl_deep_extend("force", {}, capabilities, server_config.capabilities or {})
-			require("lspconfig")[server_name].setup(server_config)
+			-- require("lspconfig")[server_name].setup(server_config)
+			vim.lsp.config[server_name] = server_config
 		end
 
 		for _, server in ipairs(servers_to_ignore_from_mason) do
