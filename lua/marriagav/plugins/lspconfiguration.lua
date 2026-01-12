@@ -39,6 +39,8 @@ return {
 		})
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		local sourcekit_capabilities = vim.deepcopy(capabilities)
+		sourcekit_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 
 		local servers = {
 			lua_ls = {
@@ -57,7 +59,7 @@ return {
 					"objective-c",
 					"objective-cpp",
 				},
-				capabilities = capabilities,
+				capabilities = sourcekit_capabilities,
 				on_attach = function(_, bufnr)
 					local opts = { noremap = true, silent = true, buffer = bufnr }
 				end,
@@ -101,6 +103,7 @@ return {
 				vim.tbl_deep_extend("force", {}, capabilities, server_config.capabilities or {})
 			-- require("lspconfig")[server_name].setup(server_config)
 			vim.lsp.config[server_name] = server_config
+			vim.lsp.enable(server_name)
 		end
 
 		for _, server in ipairs(servers_to_ignore_from_mason) do
