@@ -42,22 +42,22 @@ return {
 					if vim.bo.filetype == "markdown" then
 						-- Only set if Obsidian is loaded
 						if package.loaded["obsidian"] then
-							vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note-template<cr>", { buffer = true })
+							vim.keymap.set("n", "<leader>on", ":Obsidian template note-template<cr>", { buffer = true })
 							vim.keymap.set(
 								"n",
 								"<leader>ob",
-								":ObsidianTemplate bookmark-template<cr>: /^urls:/+1<cr>A ",
+								":Obsidian template bookmark-template<cr>: /^urls:/+1<cr>A ",
 								{ buffer = true }
 							)
-							vim.keymap.set("n", "<leader>ot", ":ObsidianTemplate task-template<cr>", { buffer = true })
+							vim.keymap.set("n", "<leader>ot", ":Obsidian template task-template<cr>", { buffer = true })
 							vim.keymap.set(
 								"n",
 								"<leader>om",
-								":ObsidianTemplate monthly-budget-template<cr>",
+								":Obsidian template monthly-budget-template<cr>",
 								{ buffer = true }
 							)
-							vim.keymap.set("n", "<leader>or", ":ObsidianBacklinks<cr>", { buffer = true })
-							vim.keymap.set("n", "gf", ":ObsidianFollowLink<cr>", { buffer = true })
+							vim.keymap.set("n", "<leader>or", ":Obsidian backlinks<cr>", { buffer = true })
+							vim.keymap.set("n", "gf", ":Obsidian follow_link<cr>", { buffer = true })
 						end
 					end
 				end
