@@ -12,6 +12,38 @@ return {
 			autowrite = true,
 		})
 
+		require("mini.statusline").setup({
+			content = {
+				active = function()
+					-- Get mode and filename sections
+					local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+					local git = MiniStatusline.section_git({ trunc_width = 40 })
+					local filename = MiniStatusline.section_filename({ trunc_width = 1140 })
+					local diagnostics = MiniStatusline.section_diagnostics({
+						trunc_width = 75,
+						icon = "",
+					})
+					local location = MiniStatusline.section_location({ trunc_width = 75 })
+
+					return MiniStatusline.combine_groups({
+						{ hl = mode_hl, strings = { mode } },
+						{
+							hl = "MiniStatuslineDevinfo",
+							strings = { git, diagnostics },
+						},
+						"%<",
+						{ hl = "MiniStatuslineFilename", strings = { filename } },
+						"%=",
+						{ hl = mode_hl, strings = { location } },
+					})
+				end,
+				inactive = function()
+					-- Optional: A minimal statusline for inactive windows (e.g., just the filename)
+					return MiniStatusline.section_filename({})
+				end,
+			},
+		})
+
 		-- Keymaps
 		vim.keymap.set("n", "<leader>mss", function()
 			MiniSessions.select()
