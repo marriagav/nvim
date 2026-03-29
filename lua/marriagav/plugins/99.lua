@@ -7,7 +7,7 @@ return {
 		_99.setup({
 			-- From https://models.dev/
 			provider = _99.Providers.OpenCodeProvider,
-			model = "github-copilot/claude-opus-4.6",
+			model = "github-copilot/claude-opus-4.5",
 
 			-- completion = {
 			--   -- I am going to disable these until i understand the
@@ -70,7 +70,7 @@ return {
 		end, { desc = "[9]9 [X] Stop all requests" })
 
 		vim.keymap.set("n", "<leader>9s", function()
-			_99.search()
+			_99.search({})
 		end, { desc = "[9]9 [S]earch" })
 
 		vim.keymap.set("n", "<leader>9m", function()
