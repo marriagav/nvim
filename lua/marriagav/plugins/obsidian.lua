@@ -46,7 +46,7 @@ return {
 							vim.keymap.set(
 								"n",
 								"<leader>ob",
-								":Obsidian template bookmark-template<cr>: /^urls:/+1<cr>A ",
+								":Obsidian template bookmark-template<cr>: /^urls:/<cr>o\t- ",
 								{ buffer = true }
 							)
 							vim.keymap.set("n", "<leader>ot", ":Obsidian template task-template<cr>", { buffer = true })

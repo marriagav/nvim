@@ -45,3 +45,5 @@ vim.o.cmdheight = 1
 
 vim.g.borderStyle = "rounded"
 vim.o.winborder = "rounded"
+
+vim.opt.laststatus = 3
