@@ -4,5 +4,7 @@ require("marriagav.core")
 if vim.g.vscode then
 	-- VSCode extensions
 else
-	require("marriagav.lazy")
+	-- require("marriagav.lazy")
+	require("marriagav.pack")
+	require("marriagav.plugin-configs")
 end
