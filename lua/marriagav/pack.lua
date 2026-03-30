@@ -7,8 +7,7 @@ local plugins = {
 	"https://github.com/nvim-telescope/telescope.nvim",
 
 	-- LSP
-	"https://github.com/mason-org/mason.nvim",
-	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+	"https://github.com/neovim/nvim-lspconfig",
 
 	-- Autocompletion
 	"https://github.com/saghen/blink.cmp",

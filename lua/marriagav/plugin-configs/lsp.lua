@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 	callback = function(event)
 		local map = function(keys, func, desc)
 			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
@@ -22,90 +22,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-require("mason").setup({})
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-local sourcekit_capabilities = vim.deepcopy(capabilities)
-sourcekit_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
-
-local servers = {
-	lua_ls = {
-		cmd = { "lua-language-server" },
-		filetypes = { "lua" },
-		root_markers = {
-			".luarc.json",
-			".luarc.jsonc",
-			".stylua.toml",
-			"stylua.toml",
-			".git",
-		},
-		settings = {
-			Lua = {
-				completion = {
-					callSnippet = "Replace",
-				},
-			},
-		},
-	},
-	sourcekit = {
-		cmd = { "sourcekit-lsp" },
-		filetypes = { "swift", "objective-c", "objective-cpp" },
-		root_markers = { "Package.swift", ".git" },
-		capabilities = sourcekit_capabilities,
-	},
-	emmet_language_server = {
-		cmd = { "emmet-language-server", "--stdio" },
-		filetypes = {
-			"css",
-			"eruby",
-			"html",
-			"javascript",
-			"javascriptreact",
-			"less",
-			"sass",
-			"scss",
-			"pug",
-			"typescriptreact",
-			"php",
-		},
-	},
-	html = {
-		cmd = { "vscode-html-language-server", "--stdio" },
-		filetypes = {
-			"html",
-			"javascript",
-			"javascriptreact",
-			"typescriptreact",
-			"php",
-		},
-	},
-	rust_analyzer = {
-		cmd = { "rust-analyzer" },
-		filetypes = { "rust" },
-		root_markers = { "Cargo.toml", ".git" },
-	},
+vim.lsp.config["*"] = {
+	capabilities = vim.lsp.protocol.make_client_capabilities(),
 }
 
-for server_name, server_config in pairs(servers) do
-	server_config.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_config.capabilities or {})
-	vim.lsp.config[server_name] = server_config
-	vim.lsp.enable(server_name)
-end
-
-local ensure_installed = {
-	"lua-language-server",
-	"emmet-language-server",
-	"html-lsp",
-	"rust-analyzer",
-	"stylua",
-	"biome",
-	"prettier",
-	"isort",
-	"black",
-	"pylint",
-	"eslint_d",
-	"swiftlint",
-}
-require("mason-tool-installer").setup({
-	ensure_installed = ensure_installed,
+-- See more in https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+vim.lsp.enable({
+	"lua_ls",
+	"sourcekit",
+	"emmet_language_server",
+	"html",
+	"rust_analyzer",
+	"pyrefly",
 })
