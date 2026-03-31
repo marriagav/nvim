@@ -26,7 +26,6 @@ local plugins = {
 
 	-- Editing
 	"https://github.com/echasnovski/mini.nvim",
-	"https://github.com/mbbill/undotree",
 	"https://github.com/ThePrimeagen/99",
 
 	-- Personal-only
