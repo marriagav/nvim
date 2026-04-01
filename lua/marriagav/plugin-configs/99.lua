@@ -4,10 +4,14 @@ _99.setup({
 	-- From https://models.dev/
 	provider = _99.Providers.OpenCodeProvider,
 	model = "github-copilot/claude-opus-4.5",
+	tmp_dir = "./tmp",
 	md_files = {
 		"AGENT.md",
 		"CLAUDE.md",
 	},
+	completion = {
+		custom_rules = {}
+	}
 })
 
 vim.keymap.set("v", "<leader>9v", function()
