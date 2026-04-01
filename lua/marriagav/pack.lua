@@ -10,7 +10,11 @@ local plugins = {
 	"https://github.com/neovim/nvim-lspconfig",
 
 	-- Autocompletion
-	"https://github.com/saghen/blink.cmp",
+	{
+		src = "https://github.com/saghen/blink.cmp",
+		version = vim.version.range('1.*')
+	},
+	"https://github.com/github/copilot.vim",
 
 	-- Treesitter
 	"https://github.com/nvim-treesitter/nvim-treesitter-context",
