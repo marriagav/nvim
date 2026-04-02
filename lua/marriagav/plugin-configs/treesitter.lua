@@ -1,8 +1,7 @@
 -- treesitter
 require("nvim-treesitter").setup({})
 
--- install
-require("nvim-treesitter").install({
+local langs = {
 	"rust",
 	"javascript",
 	"php",
@@ -13,22 +12,12 @@ require("nvim-treesitter").install({
 	"lua",
 	"kotlin",
 	"markdown",
-})
+}
+-- install
+require("nvim-treesitter").install(langs)
 -- start
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = {
-		"rs",
-		"php",
-		"swift",
-		"md",
-		"cpp",
-		"h",
-		"mm",
-		"kt",
-		"lua",
-		"js",
-		"py",
-	},
+	pattern = langs,
 	callback = function()
 		vim.treesitter.start()
 	end,
