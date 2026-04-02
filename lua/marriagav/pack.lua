@@ -12,12 +12,13 @@ local plugins = {
 	-- Autocompletion
 	{
 		src = "https://github.com/saghen/blink.cmp",
-		version = vim.version.range('1.*')
+		version = vim.version.range("1.*"),
 	},
 	"https://github.com/github/copilot.vim",
 
 	-- Treesitter
 	"https://github.com/nvim-treesitter/nvim-treesitter-context",
+	"https://github.com/nvim-treesitter/nvim-treesitter",
 
 	-- UI
 	"https://github.com/folke/snacks.nvim",
