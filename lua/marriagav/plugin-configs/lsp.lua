@@ -35,3 +35,42 @@ vim.lsp.enable({
 	"rust_analyzer",
 	"pyrefly",
 })
+
+-- Commands
+vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", {
+	desc = "Show LSP Info",
+})
+
+vim.api.nvim_create_user_command("LspLog", function(_)
+	local state_path = vim.fn.stdpath("state")
+	local log_path = vim.fs.joinpath(state_path, "lsp.log")
+
+	vim.cmd(string.format("edit %s", log_path))
+end, {
+	desc = "Show LSP log",
+})
+
+vim.api.nvim_create_user_command("LspRestart", "lsp restart", {
+	desc = "Restart LSP",
+})
+
+vim.api.nvim_create_autocmd("LspProgress", {
+	callback = function(ev)
+		local value = ev.data.params.value or {}
+		if not value.kind then
+			return
+		end
+
+		local status = value.kind == "end" and 0 or 1
+		local percent = value.percentage or 0
+
+		local osc_seq = string.format("\27]9;4;%d;%d\a", status, percent)
+
+		if os.getenv("TMUX") then
+			osc_seq = string.format("\27Ptmux;\27%s\27\\", osc_seq)
+		end
+
+		io.stdout:write(osc_seq)
+		io.stdout:flush()
+	end,
+})
