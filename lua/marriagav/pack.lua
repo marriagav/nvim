@@ -30,7 +30,7 @@ local plugins = {
 	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },
 
 	-- Editing
-	"https://github.com/echasnovski/mini.nvim",
+	"https://github.com/nvim-mini/mini.nvim",
 	"https://github.com/ThePrimeagen/99",
 
 	-- Personal-only
