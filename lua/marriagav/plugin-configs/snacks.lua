@@ -9,7 +9,7 @@ require("snacks").setup({
 		enabled = true,
 		timeout = 3000,
 	},
-	picker = { enabled = false },
+	picker = { enabled = true },
 	quickfile = { enabled = true },
 	scope = { enabled = false },
 	scroll = { enabled = false },
