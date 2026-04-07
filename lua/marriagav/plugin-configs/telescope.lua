@@ -1,10 +1,18 @@
-require("telescope").setup({
-	defaults = {
+-- require("telescope").setup({
+-- 	defaults = {
+-- 		preview = {
+-- 			treesitter = false,
+-- 		},
+-- 	},
+-- })
+
+require('telescope').setup {
+	defaults = require('telescope.themes').get_dropdown {
 		preview = {
 			treesitter = false,
 		},
 	},
-})
+}
 
 pcall(require("telescope").load_extension, "fzf")
 
