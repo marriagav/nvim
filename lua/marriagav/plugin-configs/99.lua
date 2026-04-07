@@ -10,15 +10,23 @@ _99.setup({
 		"CLAUDE.md",
 	},
 	completion = {
-		custom_rules = {}
-	}
+		custom_rules = {},
+	},
 })
+
+vim.keymap.set("n", "<leader>9ww", function()
+	_99.Extensions.Worker.set_work({})
+end, { desc = "[9]9 [W]ork" })
+
+vim.keymap.set("n", "<leader>9ws", function()
+	_99.Extensions.Worker.search()
+end, { desc = "[9]9 [W]ork [S]earch" })
 
 vim.keymap.set("v", "<leader>9v", function()
 	_99.visual({})
 end, { desc = "[9]9 [V]isual prompt" })
 
-vim.keymap.set("v", "<leader>9x", function()
+vim.keymap.set("n", "<leader>9x", function()
 	_99.stop_all_requests()
 end, { desc = "[9]9 [X] Stop all requests" })
 
