@@ -18,4 +18,7 @@ require("snacks").setup({
 	styles = {
 		notification = {},
 	},
+	gitbrowse = {
+		enabled = true,
+	},
 })
