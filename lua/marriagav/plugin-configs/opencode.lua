@@ -1,11 +1,8 @@
-local port = 4096
-
 vim.g.opencode_opts = {
 	server = {
-		url = ("http://localhost:%d"):format(port),
 		start = function()
 			if not vim.env.TMUX then
-				vim.cmd(("vsplit term://opencode --port %d | wincmd p"):format(port))
+				vim.cmd("vsplit term://opencode --port | wincmd p")
 				return
 			end
 
@@ -16,7 +13,7 @@ vim.g.opencode_opts = {
 				"-d", -- keep focus in the Neovim pane
 				"-c",
 				vim.fn.getcwd(),
-				("opencode --port %d"):format(port),
+				"opencode --port",
 			})
 		end,
 	},
