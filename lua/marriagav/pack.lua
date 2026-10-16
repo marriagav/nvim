@@ -34,7 +34,7 @@ local plugins = {
 	"https://github.com/nvim-mini/mini.nvim",
 
 	-- AI
-	"https://github.com/nickjvandyke/opencode.nvim",
+	"https://github.com/shabaraba/vibing.nvim",
 
 	-- Personal-only
 	"https://github.com/stevearc/conform.nvim",
