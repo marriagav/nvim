@@ -24,6 +24,7 @@ local plugins = {
 	"https://github.com/folke/snacks.nvim",
 	"https://github.com/oskarnurm/koda.nvim",
 	"https://github.com/folke/which-key.nvim",
+	"https://github.com/folke/zen-mode.nvim",
 
 	-- File / Navigation
 	"https://github.com/stevearc/oil.nvim",
@@ -31,7 +32,9 @@ local plugins = {
 
 	-- Editing
 	"https://github.com/nvim-mini/mini.nvim",
-	"https://github.com/ThePrimeagen/99",
+
+	-- AI
+	"https://github.com/shabaraba/vibing.nvim",
 
 	-- Personal-only
 	"https://github.com/stevearc/conform.nvim",
